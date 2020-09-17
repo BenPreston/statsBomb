@@ -1,71 +1,79 @@
-*, *::before, *::after {
-  margin: 0;
-  padding: 0;
-}
-
-body {
-  background: #333;
-  color: #f2f2f2;
-  min-height: 100%;
-  min-width: 100%;
-}
-
-.container {
-  width: 90%;
-  margin: auto;
-}
-
-.cards-container {
+.cards-list {
+  z-index: 0;
+  width: 100%;
   display: flex;
-  border-radius: 6px;
-  color: #333;
-  background: #eee;
-  padding: 1rem;
-  box-shadow: 0 0 1rem #000 inset;
-  overflow-x: auto;
-  position: relative;
-  
-  &::-webkit-scrollbar {
-    display: none;
-  }
+  justify-content: space-around;
+  flex-wrap: wrap;
 }
 
-.card {
-  flex: 1 0 250px;
-  box-shadow: 0 1px 1rem -4px #000;
-  background: #fff;
-  margin: 1rem;
-  overflow: hidden;
-  border-radius: 6px;
+.container_card {
+  margin: 30px auto;
+  width: 150px;
+  height: 150px;
+  border-radius: 40px;
+  box-shadow: 5px 5px 30px 7px rgba(0, 0, 0, 0.25),
+    -5px -5px 30px 7px rgba(0, 0, 0, 0.22);
   cursor: pointer;
-  transition: all 250ms ease-in-out;
-  
-  img {
-    width: 250px;
-    height: 250px;
-    object-fit: center;
-  }
-  
-  &:hover {
-    box-shadow: 0 4px 1rem -4px #000;
-    transform: translateY(-3px);
+  transition: 0.4s;
+}
+
+.container_card .card_image {
+  width: inherit;
+  height: inherit;
+  border-radius: 40px;
+  background-color: #b4b4b4;
+}
+
+.container_card .card_image img {
+  width: inherit;
+  height: inherit;
+  border-radius: 40px;
+  object-fit: cover;
+}
+
+.container_card .card_title {
+  text-align: center;
+  border-radius: 0px 0px 40px 40px;
+  font-family: sans-serif;
+  font-weight: bold;
+  font-size: 30px;
+  margin-top: -80px;
+  height: 40px;
+}
+
+.container_card:hover {
+  transform: scale(0.9, 0.9);
+  box-shadow: 5px 5px 30px 15px rgba(0, 0, 0, 0.25),
+    -5px -5px 30px 15px rgba(0, 0, 0, 0.22);
+}
+
+.title-white {
+  color: white;
+}
+
+.title-black {
+  color: black;
+}
+
+@media all and (max-width: 500px) {
+  .card-list {
+    /* On small screens, we are no longer using row direction but column */
+    flex-direction: column;
   }
 }
 
-.card-content {
-  padding: 1rem;
+/*
+.container_card {
+  margin: 30px auto;
+  width: 300px;
+  height: 300px;
+  border-radius: 40px;
+  background-image: url('https://i.redd.it/b3esnz5ra34y.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-repeat: no-repeat;
+box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.22);
+  transition: 0.4s;
 }
-
-@media screen and (max-width: 625px) {
-  .container {
-    width: 100%
-  }
-  
-  .cards-container {
-    padding: .5rem;
-  }
-  
-  .card {
-    margin: .5rem;
-  }
-}
+*/
